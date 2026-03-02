@@ -17,9 +17,6 @@ use Spryker\Zed\SalesProductConfigurationGui\SalesProductConfigurationGuiDepende
  */
 class SalesProductConfigurationGuiCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\SalesProductConfigurationGui\Communication\Resolver\ProductConfigurationTemplateResolverInterface
-     */
     public function createProductConfigurationTemplateResolver(): ProductConfigurationTemplateResolverInterface
     {
         return new ProductConfigurationTemplateResolver($this->getProductConfigurationRenderStrategyPlugins());
