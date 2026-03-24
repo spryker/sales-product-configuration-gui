@@ -1,1 +1,12 @@
-{{ render(controller('/sales-product-configuration-gui/sales/order-item-product-configuration', {'orderItem': orderItem})) }}
+{# @var orderItem \Generated\Shared\Transfer\ItemTransfer #}
+{% if orderItemProductConfigurationTemplates is defined %}
+    {# New optimized approach with ProductConfigurationSalesOrderDetailDataExpanderPlugin: Direct template rendering without sub-request #}
+    {% set configData = orderItemProductConfigurationTemplates[orderItem.IdSalesOrderItem]|default(null) %}
+    {% include '@SalesProductConfigurationGui/Sales/order-item-product-configuration.twig' with {
+        template: configData?.template,
+        orderItem: orderItem,
+    } only %}
+{% else %}
+    {# BC: Fallback to sub-request if plugin not registered #}
+    {{ render(controller('/sales-product-configuration-gui/sales/order-item-product-configuration', {'orderItem': orderItem})) }}
+{% endif %}

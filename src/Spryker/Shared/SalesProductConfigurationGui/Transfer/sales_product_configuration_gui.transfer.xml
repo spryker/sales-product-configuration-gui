@@ -14,4 +14,8 @@
         <property name="displayData" type="string"/>
     </transfer>
 
+    <transfer name="Order">
+        <property name="items" type="Item[]" singular="item"/>
+    </transfer>
+
 </transfers>

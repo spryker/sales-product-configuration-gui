@@ -15,6 +15,13 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SalesController extends AbstractController
 {
+    /**
+     * @deprecated use {@link \Spryker\Zed\SalesProductConfigurationGui\Communication\Plugin\Sales\ProductConfigurationSalesOrderDetailDataExpanderPlugin} instead.
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return array
+     */
     public function orderItemProductConfigurationAction(Request $request): array
     {
         /** @var \Generated\Shared\Transfer\ItemTransfer $itemTransfer */

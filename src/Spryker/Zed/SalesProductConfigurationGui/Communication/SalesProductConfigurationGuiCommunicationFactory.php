@@ -8,6 +8,8 @@
 namespace Spryker\Zed\SalesProductConfigurationGui\Communication;
 
 use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
+use Spryker\Zed\SalesProductConfigurationGui\Communication\Expander\ProductConfigurationOrderDetailDataExpander;
+use Spryker\Zed\SalesProductConfigurationGui\Communication\Expander\ProductConfigurationOrderDetailDataExpanderInterface;
 use Spryker\Zed\SalesProductConfigurationGui\Communication\Resolver\ProductConfigurationTemplateResolver;
 use Spryker\Zed\SalesProductConfigurationGui\Communication\Resolver\ProductConfigurationTemplateResolverInterface;
 use Spryker\Zed\SalesProductConfigurationGui\SalesProductConfigurationGuiDependencyProvider;
@@ -17,6 +19,11 @@ use Spryker\Zed\SalesProductConfigurationGui\SalesProductConfigurationGuiDepende
  */
 class SalesProductConfigurationGuiCommunicationFactory extends AbstractCommunicationFactory
 {
+    public function createProductConfigurationOrderDetailDataExpander(): ProductConfigurationOrderDetailDataExpanderInterface
+    {
+        return new ProductConfigurationOrderDetailDataExpander($this->createProductConfigurationTemplateResolver());
+    }
+
     public function createProductConfigurationTemplateResolver(): ProductConfigurationTemplateResolverInterface
     {
         return new ProductConfigurationTemplateResolver($this->getProductConfigurationRenderStrategyPlugins());
