@@ -3,6 +3,7 @@
 
     <transfer name="Item">
         <property name="salesOrderItemConfiguration" type="SalesOrderItemConfiguration"/>
+        <property name="idSalesOrderItem" type="int"/>
     </transfer>
 
     <transfer name="SalesProductConfigurationTemplate">
